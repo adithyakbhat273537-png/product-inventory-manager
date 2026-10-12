@@ -1,0 +1,80 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Inventory Manager</title>
+  <link rel="stylesheet" href="./style.css">
+  <script type="module" src="./dist/app.js"></script>
+</head>
+<body>
+  <header>
+    <h1>Product Inventory Manager</h1>
+    <p>Manage products, stock and discounts in one place.</p>
+  </header>
+
+  <main>
+    <section class="stats">
+      <article class="card">
+        <h3>Total Products</h3>
+        <p id="totalCount">0</p>
+      </article>
+      <article class="card">
+        <h3>Available Products</h3>
+        <p id="stockCount">0</p>
+      </article>
+    </section>
+
+    <section class="panel">
+      <h2>Add Product</h2>
+      <form id="productForm">
+        <label for="name">Product Name</label>
+        <input id="name" required maxlength="100"
+               placeholder="Enter product name">
+
+        <label for="price">Price (₹)</label>
+        <input id="price" type="number" min="0.01" step="0.01"
+               required placeholder="Enter price">
+
+        <label for="tags">Tags (comma-separated)</label>
+        <input id="tags" placeholder="Electronics, Accessories">
+
+        <label class="checkbox">
+          <input id="inStock" type="checkbox" checked>
+          Available in stock
+        </label>
+
+        <button type="submit">Add Product</button>
+      </form>
+      <p id="message" role="status" aria-live="polite"></p>
+    </section>
+
+    <section class="panel">
+      <h2>Inventory</h2>
+      <label for="search">Search products</label>
+      <input id="search" placeholder="Search by name or tag">
+
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Price</th>
+              <th>Status</th>
+              <th>Tags</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="productRows"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Product Inventory Manager | Built with TypeScript</p>
+  </footer>
+</body>
+</html>
